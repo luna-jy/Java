@@ -1,0 +1,27 @@
+main 메소드로부터 시작된 명령문들이 순차적인 흐름을 타고 처리가 된다. 
+이러한 실행의 흐름을 Thread 라고 한다. 
+그동안
+프로세스 한 개가 생성되고 main 에서 시작해 main으로 끝나는 실행 흐름이 한 개인 single Thread program.
+//
+Multi-thread program 학습 : 하나의 프로세스가 여러 실행 흐름을 갖는 프로그램 (like 멀티태스킹)
+
+main()은 자동실행되어지지만, 다른 () 는 자동실행되지 않는다. 
+→main에서 thread 를 실행시켜줘야한다. 
+
+
+※main thread가 종료되어도 
+	→각각 thread들은 실행 흐름이 모두 끝나야 최종적인 프로그램 종료가 된다. 
+
+
+
+
+※Multi thread program 만들어보기 
+1. 동시진행 작업 준비
+2. 각 작업을 thread로 만든다.   -> thread를 상속받는다.  (AlphabetThread) :ex01,02 & Runnable을 구현하기 :ex03  (class만들때 add -> runnable)
+3. thread 내부에 구체적 처리를 구현한다.  -> run() 메소드에 구현 (AlphabetThread )   
+4.  thread 실행되도록  main에서 시작시킨다.  ->start()메소드로 호출 (ThreadMain01)
+ 
+ 
+ ※	shared 영역 데이터를 사용하는 중에는 
+	다른 thread에게로 제어권이 넘어가지 못하도록	(다른 thread가 shared 데이터를 사용할 수 없도록)
+	접근을 제한해야만 한다  = 임계 영역의 동기화 
